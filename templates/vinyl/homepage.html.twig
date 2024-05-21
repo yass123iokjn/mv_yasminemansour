@@ -37,16 +37,16 @@
 			</div>
 			<div class="col-12 col-md-8 ps-5">
 				<h2 class="mb-4">10 songs (30 minutes of 60 still available)</h2>
-				
+
 				{% for track in tracks %}
-					  <div class="song-list" {{ stimulus_controller('song-controls', {
-                		infoUrl: path('api_songs_get_one', { id: loop.index })
-           			  }) }}>
+					<div class="song-list" {{ stimulus_controller('song-controls', { infoUrl: path('api_songs_get_one', { id: loop.index } ) }) }}>
 						<div class="d-flex mb-3">
 							<a href="#" {{ stimulus_action('song-controls', 'play') }}>
 								<i class="fas fa-play me-3"></i>
 							</a>
-							<span class="song-details">{{ track.song }} - {{ track.artist|upper }}</span>
+							<span class="song-details">{{ track.song }}
+								-
+								{{ track.artist|upper }}</span>
 							<a href="#">
 								<i class="fas fa-bars mx-3"></i>
 							</a>
@@ -59,6 +59,13 @@
 				<button type="button" class="btn btn-success">
 					<i class="fas fa-plus"></i>
 					Add a song</button>
+				<button type="button" class="btn btn-success">
+					<a class="navbar-brand" href="{{ path('app_contact') }}">
+						<i class="fas fa-phone"></i>
+						Contact us
+					</a>
+				</button>
+
 			</div>
 		</div>
 	</div>
